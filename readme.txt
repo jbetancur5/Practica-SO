@@ -1,9 +1,9 @@
-# Implementación de Proceso Par en Windows (WinAPI)
+Implementación de Proceso Par en Windows (WinAPI)
 
 Este repositorio contiene la implementación completa del mecanismo Proceso Par usando tuberías anónimas y creación de procesos en Windows con la WinAPI.
 Forma parte de la Práctica #1 del curso de Sistemas Operativos.
 
-🧩 Descripción del Proyecto
+Descripción del Proyecto
 
 Un Proceso Par es un proceso hijo que se crea desde un proceso padre y se comunica con él mediante un canal full-duplex basado en pipes.
 
@@ -24,6 +24,7 @@ Programas de prueba totalmente funcionales (test.cpp y child.cpp)
 Todo está probado y funcionando correctamente.
 
 📁 Estructura del Repositorio
+´
 PRACTICA/
 │── README.md                → Este archivo (descripción general)
 │
@@ -44,7 +45,7 @@ PRACTICA/
             ├── child.cpp
             ├── test.cpp
             └── Makefile
-
+' 
 ⚙️ Requisitos para Compilar (Windows)
 
 Este proyecto se compila en MSYS2 MinGW64.
