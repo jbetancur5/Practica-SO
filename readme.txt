@@ -46,7 +46,8 @@ PRACTICA/
             ├── test.cpp
             └── Makefile
 ' 
-⚙️ Requisitos para Compilar (Windows)
+
+Requisitos para Compilar (Windows)
 
 Este proyecto se compila en MSYS2 MinGW64.
 
@@ -66,13 +67,14 @@ pacman -S mingw-w64-x86_64-gcc
 
 Incluida de forma nativa en Windows.
 
-🔨 Cómo Compilar
+
+Cómo Compilar
 
 Abrir MSYS2 MinGW64 y navegar a:
 
 windows/src/
 
-1️⃣ Compilar la biblioteca
+1. Compilar la biblioteca
 make
 
 
@@ -80,11 +82,11 @@ Esto generará:
 
 ../lib/libprocesopar.a
 
-2️⃣ Compilar los programas de prueba
+2. Compilar los programas de prueba
 g++ test.cpp ../lib/libprocesopar.a -o test.exe
 g++ child.cpp -o child.exe
 
-▶️ Cómo Ejecutar
+Cómo Ejecutar
 
 Desde la carpeta src:
 
@@ -106,84 +108,61 @@ El listener del padre recibió el mensaje
 
 La comunicación full-duplex funciona
 
-🧠 Explicación Conceptual
-🔹 1. Tuberías full-duplex
+Explicación Conceptual
+1. Tuberías full-duplex
 
 Se crean dos pipes:
-
 Pipe 1: padre escribe → hijo lee
-
 Pipe 2: hijo escribe → padre lee
 
-🔹 2. Redirección de E/S
+2. Redirección de E/S
 
 El hijo recibe:
-
 STDIN  = pipeLecturaHijo
 STDOUT = pipeEscrituraHijo
 
 
 Esto permite que:
-
 WriteFile() del padre al pipe = input del hijo
-
 WriteFile() del hijo a pipe = listener del padre
 
-🔹 3. Proceso hijo
-
+3. Proceso hijo
 El hijo simplemente:
-
 Lee desde STD_INPUT_HANDLE
-
 Responde por STD_OUTPUT_HANDLE
-
 Se mantiene vivo esperando nuevos datos
 
-🔹 4. Listener en el padre
-
+4. Listener en el padre
 El padre crea un hilo que:
-
 Llama ReadFile() de forma continua
-
 Cada mensaje recibido ejecuta una función callback definida por el usuario
 
-📌 Funciones Implementadas
-✔ lanzarProcesoPar
 
+Funciones Implementadas
+✔ lanzarProcesoPar
 Crea el proceso hijo, pipes y el hilo listener.
 
 ✔ enviarMensajeProcesoPar
-
 Escribe datos al STDIN del hijo.
 
 ✔ establecerFuncionDeEscucha
-
 Define la función callback que se ejecuta cuando el hijo envía datos.
 
 ✔ destruirProcesoPar
-
 Finaliza el proceso par y libera recursos.
 
-🧪 Programas de Prueba
-test.cpp
-
+Programas de Prueba
+- test.cpp
 Crea un proceso par
-
 Configura el listener
-
 Envía "Hola hijo"
-
 Imprime respuesta
 
-child.cpp
-
+- child.cpp
 Lee desde STDIN
-
 Responde con un mensaje formateado
-
 Se mantiene corriendo
-
-🏁 Estado del Proyecto
+Estado del Proyecto
 
 Este proyecto está:
 
@@ -193,9 +172,6 @@ Este proyecto está:
 ✔ Compilado como biblioteca
 ✔ Con pruebas totalmente operativas
 
-La práctica está lista para entregar y sustentar.
-
-👤 Autor
 
 Juanmartin Betancur
 Práctica #1 – Sistemas Operativos
